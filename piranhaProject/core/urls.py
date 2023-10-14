@@ -9,5 +9,4 @@ router.register(r'user_balance', viewsets.UserBalanceViewSet, basename='user_bal
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
     path('', include(router.urls)),
-
 ]
