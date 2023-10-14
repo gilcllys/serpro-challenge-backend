@@ -4,32 +4,7 @@ from django.db import models
 # Create your models here.
 
 class UserBalance(models.Model):
-    class YesOrNo(models.TextChoices):
-        Y = 'Y', 'SIM',
-        N = 'N', 'NÃO'
-
-    class Month(models.TextChoices):
-        JAN = 'JAN', 'Janeiro',
-        FEV = 'FEV', 'Fevereiro',
-        MAR = 'MAR', 'Março',
-        ABR = 'ABR', 'Abril',
-        MAI = 'MAI', 'Abril',
-        JUN = 'JUN', 'Junho',
-        JUL = 'JUL', 'JULHO',
-        AGO = 'AGO', 'Agosto',
-        SET = 'SET', 'Setembro',
-        OUT = 'OUT', 'Outubro',
-        NOV = 'NOV', 'Novembro',
-        DEZ = 'DEZ', 'Dezembro',
-
-    has_animal = models.CharField(
-        max_length=1,
-        choices=YesOrNo.choices,
-        default=YesOrNo.N,
-        db_column='cb_has_animal'
-
-    )
-
+   
     quantity_animal = models.IntegerField(
         null=True,
         blank=True,
@@ -60,10 +35,9 @@ class UserBalance(models.Model):
         db_column='nb_fetilizante_kg',
     )
 
-    month = models.CharField(
-        max_length=3,
-        choices=Month.choices,
-        default=Month.JAN,
+    month = models.IntegerField(
+        null=False,
+        blank=False,
         db_column='cb_month'
     )
     year = models.IntegerField(
