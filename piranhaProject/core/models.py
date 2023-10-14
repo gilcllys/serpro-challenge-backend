@@ -1,8 +1,8 @@
 from django.db import models
 
 
-#Create your models here.
- 
+# Create your models here.
+
 class UserBalance(models.Model):
     class YesOrNo(models.TextChoices):
         Y = 'Y', 'SIM',
@@ -33,13 +33,12 @@ class UserBalance(models.Model):
     quantity_animal = models.IntegerField(
         null=True,
         blank=True,
+        default=0,
         db_column='nb_quantity_animal',
     )
-    energy_per_month = models.DecimalField(
+    energy_per_month = models.IntegerField(
         null=True,
         blank=True,
-        max_digits=5,
-        decimal_places=2,
         db_column='dc_energy_per_month',
     )
 
@@ -48,11 +47,10 @@ class UserBalance(models.Model):
         blank=True,
         db_column='nb_car_distance_in_km',
     )
-    composted_material_quantity = models.DecimalField(
+    composted_material_quantity = models.IntegerField(
         null=True,
         blank=True,
-        max_digits=6,
-        decimal_places=2,
+        default=0,
         db_column='dc_composted_material_quantity',
     )
     fetilizante_kg = models.IntegerField(
